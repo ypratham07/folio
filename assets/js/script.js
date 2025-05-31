@@ -157,3 +157,15 @@ for (let i = 0; i < navigationLinks.length; i++) {
 
   });
 }
+
+  //add event listner for the send button
+form.addEventListener("submit", function (event) {
+  event.preventDefault();
+
+  const formData = new FormData(form);
+  const name = encodeURIComponent(formData.get("fullname"));
+  const email = encodeURIComponent(formData.get("email"));
+  const message = encodeURIComponent(formData.get("message"));
+
+  window.location.href = `mailto:ypratham4@gmail.com?subject=Contact Form Submission&body=Name: ${name}%0AEmail: ${email}%0AMessage: ${message}`;
+});
